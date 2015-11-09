@@ -3,6 +3,7 @@ package fix.parser.config;
 import java.io.File;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.core.io.ClassPathResource;
 
 /**
  * Created by arisharbab on 10/9/15.
@@ -14,10 +15,11 @@ public class Config {
     String path;
     String fiximateURL;
 
-    public Config(String path,String fiximateURL){
+    public Config(String path,String fiximateURL) throws Exception{
         setPath(path);
         setFiximateURL(fiximateURL);
-        setFile(new File(getPath()));
+        ClassPathResource resource = new ClassPathResource(path);
+        setFile(resource.getFile());
         if(getFile().exists() && !getFile().isDirectory()) {
             setIsDictionaryPresent(true);
         }else{

@@ -1,7 +1,13 @@
 
 function loadXMLDoc(){
     var lines = document.getElementById("fixmsg").value.replace("\n","");
-    var splitLine = lines.split("\u0001");
+    var delimeter = "";
+    if(lines.indexOf("^A") > -1){
+         delimeter="^A";
+    }else{
+          delimeter="\u0001";
+    }
+    var splitLine = lines.split(delimeter);
     var rawmsg="";
     splitLine.forEach(function(entry) {
            rawmsg=rawmsg+entry+"<SOW>";
