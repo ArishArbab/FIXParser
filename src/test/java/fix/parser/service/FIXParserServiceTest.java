@@ -10,7 +10,6 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import static org.mockito.Mockito.when;
 
-import static org.junit.Assert.*;
 
 /**
  * Created by arisharbab on 13/9/15.
